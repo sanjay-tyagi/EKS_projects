@@ -1,0 +1,20 @@
+apiVerison: apps/v1
+kind: Deployment
+metadata:
+ name: voting-app-deploy
+ labels:
+  name: voting-app-deploy
+  app: demo-voting-app
+spec:
+ repliacs: 3
+ selector: 
+  matchLabels:
+     name: voting-app-pod
+     app: demo-voting-app
+
+ conatiners:
+  - name: voting-app
+    image: kodecloud/examplevotingapp_vote:v1
+    port: 
+     -conatainerPort: 80
+  
